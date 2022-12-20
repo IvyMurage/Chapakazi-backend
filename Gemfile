@@ -29,6 +29,9 @@ group :development do
 end
 
 group :development, :test do
+  gem "faker"
+  gem "factory_bot_rails"
+  gem "database_cleaner"
   gem "rspec-rails", "~> 5.0.0"
 end
 
@@ -42,7 +45,7 @@ gem "rack-cors"
 
 gem "bootsnap", ">= 1.4.4", require: false
 
-gem "faker"
+# gem "faker"
 
 gem "bcrypt", "~> 3.1.7"
 
