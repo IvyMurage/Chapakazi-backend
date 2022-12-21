@@ -1,3 +1,3 @@
 class CustomerSerializer < ActiveModel::Serializer
-  attributes :id, :username, :image, :password_digest, :location, :description, :admin_id
+  attributes :id, :username, :image, :location, :description, :admin_id
 end
