@@ -5,8 +5,9 @@ RSpec.describe Job, type: :model do
 
   it "is valid with valid attributes" do
     customer = Customer.create(username: "customer", password_confirmation: "sup3r-secret", password: "sup3r-secret", image: "https://via.placeholder.com/150", description: "As you can see, the example failed because our validation functionality needs to be added to the model")
-    job = Job.create(title: "hello", description: "As you can see, the example failed because our validation functionality needs to be added to the mod", budget: "$20-$30", customer_id: customer.id)
+    job = Job.new(title: "hello", description: "As you can see, the example failed because our validation functionality needs to be added to the mod", budget: "$20-$30", customer_id: customer.id)
     expect(job).to be_valid
+    expect(job.new).to_not be_valid
   end
 
   describe "validations" do
