@@ -45,8 +45,7 @@ RSpec.describe "Jobs", type: :request do
     end
   end
 
-
-  describe "DELETE jobs/:id" do 
+  describe "DELETE jobs/:id" do
     before do
       customer = Customer.create(username: "customer", password_confirmation: "sup3r-secret", password: "sup3r-secret", image: "https://via.placeholder.com/150", description: "As you can see, the example failed because our validation functionality needs to be added to the model")
       Job.create!(
@@ -59,7 +58,42 @@ RSpec.describe "Jobs", type: :request do
 
     it "returns no content after deletion" do
       expect { delete "/jobs/#{Job.first.id}" }.to change(Job, :count).from(1).to(0)
+    end
+  end
 
+  describe "CREATE /jobs" do
+    customer = Customer.create(username: "customer", password_confirmation: "sup3r-secret", password: "sup3r-secret", image: "https://via.placeholder.com/150", description: "As you can see, the example failed because our validation functionality needs to be added to the model")
+
+    let!(:job_params) do
+      {
+        title: "Capentry",
+        description: "As you can see, the example failed because our validation functionality needs to be added to the model",
+        budget: "$20-$50",
+        customer_id: customer.id,
+      }
+    end
+    it "it expects to create a new job" do
+      expect {
+        post "/jobs", params: {
+                        title: "Capentry",
+                        description: "As you can see, the example failed because our validation functionality needs to be added to the model",
+                        budget: "$20-$50",
+                        customer_id: customer.id,
+
+                      }
+      }.to change(Job, :count).by(1)
+    end
+
+    it "returns the job data" do
+      headers = { "ContentType": "application/json" }
+      post "/jobs", params: job_params
+      expect(response).to have_http_status(:created)
+      expect(response.body).to include_json({
+        id: a_kind_of(Integer),
+        title: "Capentry",
+        summary: "As you can see, the example failed because our validation functionality needs to be added to the model"[1..50] += "...",
+        budget: "$20-$50",
+      })
     end
   end
 end

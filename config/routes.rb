@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   resources :messages
   resources :reviews
   resources :customers
-  resources :jobs, only: [:index, :show, :destroy]
+  resources :jobs, only: [:index, :show, :destroy, :create]
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")
