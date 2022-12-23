@@ -10,9 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_12_21_154720) do
+ActiveRecord::Schema[7.0].define(version: 2022_12_23_125403) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "admins", force: :cascade do |t|
+    t.string "username"
+    t.string "email"
+    t.string "password_digest"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "customers", force: :cascade do |t|
     t.string "username"
@@ -25,10 +33,39 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_21_154720) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "handymen", force: :cascade do |t|
+    t.string "username"
+    t.string "password_digest"
+    t.string "location"
+    t.string "image"
+    t.string "description"
+    t.integer "admin_id"
+    t.string "rating"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "speciality"
+  end
+
   create_table "jobs", force: :cascade do |t|
     t.string "title"
     t.string "description"
     t.string "budget"
+    t.integer "customer_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "messages", force: :cascade do |t|
+    t.integer "handyman_id"
+    t.integer "customer_id"
+    t.string "message"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "reviews", force: :cascade do |t|
+    t.string "comment"
+    t.integer "handyman_id"
     t.integer "customer_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
