@@ -1,6 +1,7 @@
 class ReviewsController < ApplicationController
   rescue_from ActiveRecord::RecordNotFound, with: :render_review_not_found_response
   rescue_from ActiveRecord::RecordInvalid, with: :render_unprocessable_entity_response
+  #   skip_before_action :authorized, only: [:index]
 
   def index
     if params[:handyman_id]
@@ -8,7 +9,7 @@ class ReviewsController < ApplicationController
     else
       reviews = Review.all
     end
-    render json: reviews.order(:created_at), status: :ok
+    render json: reviews, status: :ok
   end
 
   def show
@@ -18,6 +19,7 @@ class ReviewsController < ApplicationController
 
   def create
     review = Review.create!(review_params)
+    current_customer.reviews << review
     render json: review, status: :created
   end
 

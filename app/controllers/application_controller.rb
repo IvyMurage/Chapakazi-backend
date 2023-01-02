@@ -23,10 +23,9 @@ class ApplicationController < ActionController::API
 
   def current_user
     if decoded_token
-      user_id = decoded_token[0]
-      if user_id.has_key?("customer_id")
+      if decoded_token[0]["customer_id"]
         return current_customer
-      elsif user_id.has_key?("handyman_id")
+      elsif decoded_token[0]["handyman_id"]
         return current_handyman
       end
     end
@@ -43,12 +42,12 @@ class ApplicationController < ActionController::API
   private
 
   def current_customer
-    customer_id = user_id["customer_id"]
+    customer_id = decoded_token[0]["customer_id"]
     customer = Customer.find_by(id: customer_id)
   end
 
   def current_handyman
-    handyman_id = user_id["handyman_id"]
+    handyman_id = decoded_token[0]["handyman_id"]
     handyman = Handyman.find_by(id: handyman_id)
   end
 end

@@ -4,7 +4,7 @@ class HandymenController < ApplicationController
   def create
     @handyman = Handyman.create!(handyman_params)
     @token = encode_token(handyman_id: @handyman.id)
-    render json: { handyman: @handyman, jwt: @token }, status: :created
+    render json: { handyman: HandymanSerializer.new(@handyman), jwt: @token }, status: :created
   end
 
   private

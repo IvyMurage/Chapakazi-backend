@@ -6,12 +6,11 @@ class HandymenauthController < ApplicationController
 
     if @handyman && @handyman.authenticate(handyman_login_params[:password])
       @token = encode_token({ handyman_id: @handyman.id })
-      render json: { handyman: @handyman, token: @token }, status: :accepted
+      render json: { handyman: HandymanSerializer.new(@handyman), token: @token }, status: :accepted
     else
       render json: { message: ["Invalid username or password"] }, status: :unauthorized
     end
   end
-
 
   def handyman_login_params
     params.permit(:username, :password)

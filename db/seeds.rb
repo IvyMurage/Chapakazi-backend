@@ -1,11 +1,3 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
-#   Character.create(name: "Luke", movie: movies.first)
-
 puts "👨‍💻👨‍💻 job seeding!!"
 10.times do
   Customer.create(username: Faker::Name.name, image: Faker::Avatar.image, password: "123", password_confirmation: "123", location: "Nairobi, Kenya")
@@ -18,9 +10,20 @@ end
 
 puts "👨‍💻👨‍💻 end of job seeding!!"
 
+Handyman.create(username: "JOhn Doe",
+                password: "123",
+                password_confirmation: "123",
+                location: "Nairobi,Kenya",
+                image: "https://img.freepik.com/free-photo/carpenter-cutting-plank-by-circular-saw_329181-3731.jpg?w=740&t=st=1672677374~exp=1672677974~hmac=79257539772412f447b7f9d73b6f04d0160fa9ae7f3fdbdb5b03dcc60621d6e2",
+                rating: "$12-$30",
+                speciality: "Capentry",
+                description: Faker::Lorem.characters(number: 100),
+                admin_id: 1)
+
 puts "Review seeding"
-customer_id = Customer.order("RANDOM()").first.id
-10.times do
-  Review.create(customer_id: customer_id, comment: Faker::Lorem.sentence, handyman_id: 3)
-end
+Review.create(comment: Faker::Lorem.sentence, customer_id: Customer.first.id, handyman_id: Handyman.first.id)
+Review.create(comment: Faker::Lorem.sentence, customer_id: Customer.second.id, handyman_id: Handyman.first.id)
+Review.create(comment: Faker::Lorem.sentence, customer_id: Customer.third.id, handyman_id: Handyman.first.id)
+Review.create(comment: Faker::Lorem.sentence, customer_id: Customer.fourth.id, handyman_id: Handyman.first.id)
+Review.create(comment: Faker::Lorem.sentence, customer_id: Customer.fifth.id, handyman_id: Handyman.first.id)
 puts "End of Review seeding"
