@@ -17,3 +17,10 @@ end
 end
 
 puts "👨‍💻👨‍💻 end of job seeding!!"
+
+puts "Review seeding"
+customer_id = Customer.order("RANDOM()").first.id
+10.times do
+  Review.create(customer_id: customer_id, comment: Faker::Lorem.sentence, handyman_id: 3)
+end
+puts "End of Review seeding"
