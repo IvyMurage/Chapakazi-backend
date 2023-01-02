@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
   resources :admins
-  resources :handymen
+  resources :handymen do
+    resources :reviews
+  end
   resources :messages
-  resources :reviews
   resources :customers
   resources :jobs, only: [:index, :show, :destroy, :create]
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
