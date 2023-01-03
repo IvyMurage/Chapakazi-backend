@@ -1,5 +1,6 @@
 class HandymenauthController < ApplicationController
   skip_before_action :authorized
+  rescue_from ActiveRecord::RecordInvalid, with: :render_unprocessable_entity_response
 
   def create
     @handyman = Handyman.find_by(username: handyman_login_params[:username])
