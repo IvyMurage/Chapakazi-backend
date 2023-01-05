@@ -1,7 +1,39 @@
 puts "👨‍💻👨‍💻 job seeding!!"
-10.times do
-  Customer.create(username: Faker::Name.name, image: Faker::Avatar.image, password: "123", password_confirmation: "123", location: "Nairobi, Kenya")
-end
+
+Customer.create(username: Faker::Name.name,
+                image: "https://randomuser.me/api/portraits/women/35.jpg",
+                password: "123",
+                password_confirmation: "123",
+                location: "Langata, Nairobi West",
+                admin_id: 1)
+
+Customer.create(username: Faker::Name.name,
+                image: "https://randomuser.me/api/portraits/men/53.jpg",
+                password: "123",
+                password_confirmation: "123",
+                location: "Thika, Nairobi",
+                admin_id: 1)
+
+Customer.create(username: Faker::Name.name,
+                image:" https://randomuser.me/api/portraits/women/62.jpg",
+                password: "123",
+                password_confirmation: "123",
+                location: "Roysambu, Nairobi",
+                admin_id: 1)
+
+Customer.create(username: Faker::Name.name,
+                image: "https://randomuser.me/api/portraits/men/80.jpg",
+                password: "123",
+                password_confirmation: "123",
+                location: "Kiambaa, Kiambu",
+                admin_id: 1)
+
+Customer.create(username: Faker::Name.name,
+                image: "https://randomuser.me/api/portraits/women/69.jpg",
+                password: "123",
+                password_confirmation: "123",
+                location: "Umoja, Eastlands",
+                admin_id: 1)
 
 10.times do
   customer_id = Customer.order("RANDOM()").first.id
@@ -12,6 +44,7 @@ puts "👨‍💻👨‍💻 end of job seeding!!"
 
 Handyman.create(username: "JOhn Doe",
                 password: "123",
+                email: "johndoe@gmail.com",
                 password_confirmation: "123",
                 location: "Nairobi,Kenya",
                 image: "https://img.freepik.com/free-photo/carpenter-cutting-plank-by-circular-saw_329181-3731.jpg?w=740&t=st=1672677374~exp=1672677974~hmac=79257539772412f447b7f9d73b6f04d0160fa9ae7f3fdbdb5b03dcc60621d6e2",

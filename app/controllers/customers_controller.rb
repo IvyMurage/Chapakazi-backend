@@ -1,5 +1,6 @@
 class CustomersController < ApplicationController
   rescue_from ActiveRecord::RecordInvalid, with: :render_unprocessable_entity_response
+  skip_before_action :authorized, only: [:create]
 
   def create
     @customer = Customer.create!(customer_params)
@@ -15,7 +16,7 @@ class CustomersController < ApplicationController
                   :password,
                   :password_confirmation,
                   :location,
-                  :description,
                   :admin_id)
   end
+
 end
