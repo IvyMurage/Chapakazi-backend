@@ -1,10 +1,8 @@
 Rails.application.routes.draw do
   resources :admins
-  resources :handymen do
-    resources :reviews
-  end
+  resources :handymen
   resources :messages
-  resources :reviews, only: [:index]
+  resources :reviews
   resources :customers
   resources :jobs, only: [:index, :show, :destroy, :create]
 

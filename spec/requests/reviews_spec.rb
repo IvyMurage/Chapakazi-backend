@@ -2,11 +2,6 @@ require "rails_helper"
 RSpec.describe "reviews", type: :request do
   describe "GET /reviews" do
     before do
-      customer = Customer.create(username: "customer", password_confirmation: "123", password: "123", image: "https://via.placeholder.com/150", location: "Nairobi, Kenya", admin_id: 1)
-      Job.create!(title: "Plumbering", description: "As you can see, the example failed because our validation functionality needs to be added to the model", budget: "$10-$20", customer_id: customer.id)
-      Job.create!(title: "Capentry", description: "As you can see, the example failed because our validation functionality needs to be added to the model", budget: "$5-$10", customer_id: customer.id)
-    end
-    it "Should return an array of jobs" do
       handyman = Handyman.create(username: "John Wilson",
                                  password: "123",
                                  email: "john@gmail.com",
@@ -17,19 +12,25 @@ RSpec.describe "reviews", type: :request do
                                  speciality: "Capentry",
                                  description: Faker::Lorem.characters(number: 100),
                                  admin_id: 1)
-      jwt = confirm_and_login_handyman(handyman)
-      get "/jobs", headers: { "Authorization" => "Bearer #{jwt}" }
-      expect(response.body).to include_json([
-                                 { title: "Plumbering", summary: "As you can see, the example failed because our validation functionality needs to be added to the model"[1..50] += "...", budget: "$10-$20" },
-                                 { title: "Capentry", summary: "As you can see, the example failed because our validation functionality needs to be added to the model"[1..50] += "...", budget: "$5-$10" },
-                               ])
-
-      expect(JSON.parse(response.body)).to be_kind_of(Array)
-      # expect(response).to have_http_status(:unauthorized)
+      customer = Customer.create(username: "customer", password_confirmation: "123", password: "123", image: "https://via.placeholder.com/150", location: "Nairobi, Kenya", admin_id: 1)
+      review = Review.create(comment: "I loved his work", customer_id: customer.id, handyman_id: handyman.id)
     end
-    # it "Should return a status code of ok" do
-    #   expect(response).to have_http_status(:ok)
-    # end
+    it "Should return an array of reviews" do
+      handyman = Handyman.create(username: "John Wilson",
+                                 password: "123",
+                                 email: "john@gmail.com",
+                                 password_confirmation: "123",
+                                 location: "Umoja, Nairobi",
+                                 image: "https://img.freepik.com/free-photo/carpenter-cutting-plank-by-circular-saw_329181-3731.jpg?w=740&t=st=1672677374~exp=1672677974~hmac=79257539772412f447b7f9d73b6f04d0160fa9ae7f3fdbdb5b03dcc60621d6e2",
+                                 rating: "$12-$30",
+                                 speciality: "Capentry",
+                                 description: Faker::Lorem.characters(number: 100),
+                                 admin_id: 1)
+      customer = Customer.create(username: "customer", password_confirmation: "123", password: "123", image: "https://via.placeholder.com/150", location: "Nairobi, Kenya", admin_id: 1)
+      jwt = confirm_and_login_customer(customer)
+      get "/reviews", headers: { "Authorization" => "Bearer #{jwt}" }
+      expect(JSON.parse(response.body)).to be_kind_of(Array)
+    end
   end
 
   describe "SHOW /jobs/:id" do

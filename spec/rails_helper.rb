@@ -1,7 +1,6 @@
 # This file is copied to spec/ when you run 'rails generate rspec:install'
 require "database_cleaner"
 require "spec_helper"
-require "request_helper"
 
 ENV["RAILS_ENV"] ||= "test"
 require File.expand_path("../config/environment", __dir__)
@@ -98,6 +97,4 @@ Shoulda::Matchers.configure do |config|
     post "/handyman/login", params: { username: user.username, password: "123" }
     return json["token"]
   end
-
-
 end

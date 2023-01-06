@@ -5,15 +5,9 @@ class ReviewsController < ApplicationController
 
   def index
     if current_customer
-      if params[:handyman_id]
-        reviews = Review.find(params[:handyman_id])
-      else
-        reviews = Review.all
-      end
+      reviews = Review.all
       render json: reviews, status: :ok
     end
-
-    # byebug
   end
 
   def show
