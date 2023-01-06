@@ -1,6 +1,8 @@
 # This file is copied to spec/ when you run 'rails generate rspec:install'
 require "database_cleaner"
 require "spec_helper"
+require "request_helper"
+
 ENV["RAILS_ENV"] ||= "test"
 require File.expand_path("../config/environment", __dir__)
 # Prevent database truncation if the environment is production
@@ -81,4 +83,21 @@ Shoulda::Matchers.configure do |config|
     with.test_framework :rspec
     with.library :rails
   end
+
+  def json
+    JSON.parse(response.body)
+  end
+
+  def confirm_and_login_customer(user)
+    post "/customer/login", params: { username: user.username, password: "123" }
+    #   get '/handyman/confirm', params: {token: user.confirmation_token}
+    return json["token"]
+  end
+
+  def confirm_and_login_handyman(user)
+    post "/handyman/login", params: { username: user.username, password: "123" }
+    return json["token"]
+  end
+
+
 end
