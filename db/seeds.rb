@@ -27,3 +27,7 @@ Review.create(comment: Faker::Lorem.sentence, customer_id: Customer.third.id, ha
 Review.create(comment: Faker::Lorem.sentence, customer_id: Customer.fourth.id, handyman_id: Handyman.first.id)
 Review.create(comment: Faker::Lorem.sentence, customer_id: Customer.fifth.id, handyman_id: Handyman.first.id)
 puts "End of Review seeding"
+
+puts "Message seeding"
+
+puts "End of Message seeding"
