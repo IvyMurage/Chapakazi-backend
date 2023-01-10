@@ -29,5 +29,6 @@ Review.create(comment: Faker::Lorem.sentence, customer_id: Customer.fifth.id, ha
 puts "End of Review seeding"
 
 puts "Message seeding"
+Message.create(customer_id: rand(1..9), message: Faker::Lorem.paragraph(sentence_count: 3, supplemental: true), handyman_id: rand(1..4))
 
 puts "End of Message seeding"
