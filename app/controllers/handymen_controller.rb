@@ -3,6 +3,7 @@ class HandymenController < ApplicationController
   rescue_from ActiveRecord::RecordInvalid, with: :render_unprocessable_entity_response
 
   def create
+    # byebug
     @handyman = Handyman.create!(handyman_params)
     @token = encode_token(handyman_id: @handyman.id)
     render json: { handyman: HandymanSerializer.new(@handyman), jwt: @token }, status: :created
@@ -18,6 +19,7 @@ class HandymenController < ApplicationController
                   :image,
                   :description,
                   :admin_id,
+                  :email,
                   :rating,
                   :speciality)
   end

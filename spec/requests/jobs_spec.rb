@@ -20,8 +20,8 @@ RSpec.describe "Jobs", type: :request do
       jwt = confirm_and_login_handyman(handyman)
       get "/jobs", headers: { "Authorization" => "Bearer #{jwt}" }
       expect(response.body).to include_json([
-                                 { title: "Plumbering", summary: "As you can see, the example failed because our validation functionality needs to be added to the model"[1..50] += "...", budget: "$10-$20" },
-                                 { title: "Capentry", summary: "As you can see, the example failed because our validation functionality needs to be added to the model"[1..50] += "...", budget: "$5-$10" },
+                                 { title: "Plumbering", summary: "As you can see, the example failed because our validation functionality needs to be added to the model"[0..50] += "...", budget: "$10-$20" },
+                                 { title: "Capentry", summary: "As you can see, the example failed because our validation functionality needs to be added to the model"[0..50] += "...", budget: "$5-$10" },
                                ])
 
       expect(JSON.parse(response.body)).to be_kind_of(Array)
@@ -124,7 +124,7 @@ RSpec.describe "Jobs", type: :request do
       expect(response.body).to include_json({
         id: a_kind_of(Integer),
         title: "Capentry",
-        summary: "As you can see, the example failed because our validation functionality needs to be added to the model"[1..50] += "...",
+        summary: "As you can see, the example failed because our validation functionality needs to be added to the model"[0..50] += "...",
         budget: "$20-$50",
       })
     end

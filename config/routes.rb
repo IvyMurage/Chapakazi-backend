@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
   resources :admins
-  resources :handymen
+  resources :handymen, only: [:create]
   resources :messages
   resources :reviews
-  resources :customers
+  resources :customers, only: [:create]
   resources :jobs, only: [:index, :show, :destroy, :create]
 
   post "handyman/login", to: "handymenauth#create"

@@ -7,4 +7,5 @@ class Handyman < ApplicationRecord
   validates :image, presence: true
   validates :location, presence: true
   has_many :reviews, dependent: :destroy
+  # has_one_attached :image
 end

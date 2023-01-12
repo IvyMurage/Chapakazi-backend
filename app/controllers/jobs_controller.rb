@@ -1,7 +1,7 @@
 class JobsController < ApplicationController
   rescue_from ActiveRecord::RecordNotFound, with: :render_not_found_response
   rescue_from ActiveRecord::RecordInvalid, with: :render_unprocessable_entity_response
-  skip_before_action :authorized, only: [:create]
+  # skip_before_action :authorized, only: [:create]
 
   def index
     jobs = Job.all
@@ -14,7 +14,7 @@ class JobsController < ApplicationController
   end
 
   def create
-    job = Job.create!(job_params)
+    job = current_customer.jobs.create!(job_params)
     render json: job, status: :created
   end
 
@@ -37,7 +37,7 @@ class JobsController < ApplicationController
   end
 
   def job_params
-    params.permit(:title, :description, :budget, :customer_id)
+    params.permit(:title, :description, :budget)
   end
 
   def render_not_found_response

@@ -8,7 +8,7 @@ class CustomersauthController < ApplicationController
       @token = encode_token(customer_id: @customer.id)
       render json: { customer: @customer, jwt: @token }, status: :accepted
     else
-      render json: { error: "Invalid username or password" }, status: :unauthorized
+      render json: { errors: ["Invalid username or password"] }, status: :unauthorized
     end
   end
 
