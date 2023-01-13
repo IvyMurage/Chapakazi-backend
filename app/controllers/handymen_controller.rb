@@ -1,12 +1,27 @@
 class HandymenController < ApplicationController
   skip_before_action :authorized, only: [:create]
   rescue_from ActiveRecord::RecordInvalid, with: :render_unprocessable_entity_response
+  rescue_from ActiveRecord::RecordNotFound, with: :render_not_found_response
 
   def create
     # byebug
     @handyman = Handyman.create!(handyman_params)
     @token = encode_token(handyman_id: @handyman.id)
     render json: { handyman: HandymanSerializer.new(@handyman), jwt: @token }, status: :created
+  end
+
+  def index
+    handymen = Handyman.all
+    render json: handymen, status: :ok
+  end
+
+  def update
+  end
+
+  def destroy
+    customer = find_customer
+    customer.destroy
+    head :no_content
   end
 
   private
@@ -26,5 +41,13 @@ class HandymenController < ApplicationController
 
   def render_unprocessable_entity_response(invalid)
     render json: { errors: invalid.record.errors.full_messages }, status: :unprocessable_entity
+  end
+
+  def find_customer
+    Customer.find(params[:id])
+  end
+
+  def render_not_found_response
+    render json: { errors: ["Handyman not found"] }
   end
 end

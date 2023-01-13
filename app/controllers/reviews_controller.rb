@@ -36,7 +36,7 @@ class ReviewsController < ApplicationController
   end
 
   def review_params
-    params.permit(:handyman_id, :comment)
+    params.permit(:handyman_id, :comment, :votes)
   end
 
   def render_review_not_found_response

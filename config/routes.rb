@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   resources :admins
-  resources :handymen, only: [:create]
+  resources :handymen, only: [:create, :index]
   resources :messages
   resources :reviews
   resources :customers, only: [:create]
@@ -8,4 +8,6 @@ Rails.application.routes.draw do
 
   post "handyman/login", to: "handymenauth#create"
   post "customer/login", to: "customersauth#create"
+  patch "customer/password-reset", to: "customers#update"
+  patch "handyman/password-reset", to: "handymen#update"
 end

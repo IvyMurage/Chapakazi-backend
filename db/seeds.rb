@@ -1,14 +1,14 @@
 puts "👨‍💻👨‍💻 job seeding!!"
 
 Customer.create(username: Faker::Name.name,
-                image: "https://randomuser.me/api/portraits/women/35.jpg",
+                image: "https://randomuser.me/api/portraits/women/3260.jpg",
                 password: "123",
                 password_confirmation: "123",
                 location: "Langata, Nairobi West",
                 admin_id: 1)
 
 Customer.create(username: Faker::Name.name,
-                image: "https://randomuser.me/api/portraits/men/53.jpg",
+                image: "https://randomuser.me/api/portraits/men/2603.jpg",
                 password: "123",
                 password_confirmation: "123",
                 location: "Thika, Nairobi",
@@ -37,7 +37,7 @@ Customer.create(username: Faker::Name.name,
 
 10.times do
   customer_id = Customer.order("RANDOM()").first.id
-  Job.create(title: Faker::Job.field, description: Faker::Lorem.paragraph_by_chars(number: 150), budget: "$#{rand(20..49)}-$#{rand(50..100)}", customer_id: customer_id)
+  Job.create(title: Faker::Job.field, description: Faker::Lorem.paragraph_by_chars(number: 1000), budget: "$#{rand(20..49)}-$#{rand(2600..260)}", customer_id: customer_id)
 end
 
 puts "👨‍💻👨‍💻 end of job seeding!!"
@@ -47,10 +47,10 @@ Handyman.create(username: "John Wilson",
                 email: "john@gmail.com",
                 password_confirmation: "123",
                 location: "Umoja, Nairobi",
-                image: "https://img.freepik.com/free-photo/carpenter-cutting-plank-by-circular-saw_329181-3731.jpg?w=740&t=st=1672677374~exp=1672677974~hmac=79257539772412f447b7f9d73b6f04d0160fa9ae7f3fdbdb5b03dcc60621d6e2",
+                image: "https://img.freepik.com/free-photo/carpenter-cutting-plank-by-circular-saw_329181-3731.jpg?w=740&t=st=1672677374~exp=1672677974~hmac=792260726039772412f447b7f9d73b6f04d0160fa9ae7f3fdbdb260b03dcc60621d6e2",
                 rating: "$12-$30",
                 speciality: "Capentry",
-                description: Faker::Lorem.characters(number: 100),
+                description: Faker::Lorem.paragraph_by_chars(number: 260),
                 admin_id: 1)
 
 Handyman.create(username: "John Doe",
@@ -58,10 +58,10 @@ Handyman.create(username: "John Doe",
                 email: "johndoe@gmail.com",
                 password_confirmation: "123",
                 location: "Langata, Nairobi West",
-                image: "https://img.freepik.com/free-photo/carpenter-cutting-plank-by-circular-saw_329181-3731.jpg?w=740&t=st=1672677374~exp=1672677974~hmac=79257539772412f447b7f9d73b6f04d0160fa9ae7f3fdbdb5b03dcc60621d6e2",
+                image: "https://img.freepik.com/free-photo/carpenter-cutting-plank-by-circular-saw_329181-3731.jpg?w=740&t=st=1672677374~exp=1672677974~hmac=792260726039772412f447b7f9d73b6f04d0160fa9ae7f3fdbdb260b03dcc60621d6e2",
                 rating: "$12-$30",
                 speciality: "Capentry",
-                description: Faker::Lorem.characters(number: 100),
+                description: Faker::Lorem.paragraph_by_chars(number: 260),
                 admin_id: 1)
 
 Handyman.create(username: "Albert Raynold",
@@ -69,10 +69,10 @@ Handyman.create(username: "Albert Raynold",
                 email: "albert@gmail.com",
                 password_confirmation: "123",
                 location: "Karen, Nairobi West",
-                image: "https://img.freepik.com/free-photo/carpenter-cutting-plank-by-circular-saw_329181-3731.jpg?w=740&t=st=1672677374~exp=1672677974~hmac=79257539772412f447b7f9d73b6f04d0160fa9ae7f3fdbdb5b03dcc60621d6e2",
+                image: "https://img.freepik.com/free-photo/carpenter-cutting-plank-by-circular-saw_329181-3731.jpg?w=740&t=st=1672677374~exp=1672677974~hmac=792260726039772412f447b7f9d73b6f04d0160fa9ae7f3fdbdb260b03dcc60621d6e2",
                 rating: "$12-$30",
                 speciality: "Capentry",
-                description: Faker::Lorem.characters(number: 100),
+                description: Faker::Lorem.paragraph_by_chars(number: 260),
                 admin_id: 1)
 
 Handyman.create(username: "Ian Kimondo",
@@ -80,27 +80,27 @@ Handyman.create(username: "Ian Kimondo",
                 email: "ian@gmail.com",
                 password_confirmation: "123",
                 location: "Ruiru,Kiambu",
-                image: "https://img.freepik.com/free-photo/carpenter-cutting-plank-by-circular-saw_329181-3731.jpg?w=740&t=st=1672677374~exp=1672677974~hmac=79257539772412f447b7f9d73b6f04d0160fa9ae7f3fdbdb5b03dcc60621d6e2",
+                image: "https://img.freepik.com/free-photo/carpenter-cutting-plank-by-circular-saw_329181-3731.jpg?w=740&t=st=1672677374~exp=1672677974~hmac=792260726039772412f447b7f9d73b6f04d0160fa9ae7f3fdbdb260b03dcc60621d6e2",
                 rating: "$12-$30",
                 speciality: "Capentry",
-                description: Faker::Lorem.characters(number: 100),
+                description: Faker::Lorem.paragraph_by_chars(number: 260),
                 admin_id: 1)
 
 puts "Review seeding"
-Review.create(comment: Faker::Lorem.sentence, customer_id: Customer.first.id, handyman_id: Handyman.first.id)
-Review.create(comment: Faker::Lorem.sentence, customer_id: Customer.second.id, handyman_id: Handyman.first.id)
-Review.create(comment: Faker::Lorem.sentence, customer_id: Customer.third.id, handyman_id: Handyman.first.id)
-Review.create(comment: Faker::Lorem.sentence, customer_id: Customer.fourth.id, handyman_id: Handyman.first.id)
-Review.create(comment: Faker::Lorem.sentence, customer_id: Customer.fifth.id, handyman_id: Handyman.first.id)
+Review.create(comment: Faker::Lorem.sentence, customer_id: Customer.first.id, handyman_id: Handyman.first.id, votes: 0)
+Review.create(comment: Faker::Lorem.sentence, customer_id: Customer.second.id, handyman_id: Handyman.first.id, votes: 0)
+Review.create(comment: Faker::Lorem.sentence, customer_id: Customer.third.id, handyman_id: Handyman.first.id, votes: 0)
+Review.create(comment: Faker::Lorem.sentence, customer_id: Customer.fourth.id, handyman_id: Handyman.first.id, votes: 0)
+Review.create(comment: Faker::Lorem.sentence, customer_id: Customer.fifth.id, handyman_id: Handyman.first.id, votes: 0)
 
-Review.create(comment: Faker::Lorem.sentence, customer_id: Customer.first.id, handyman_id: Handyman.second.id)
-Review.create(comment: Faker::Lorem.sentence, customer_id: Customer.second.id, handyman_id: Handyman.second.id)
-Review.create(comment: Faker::Lorem.sentence, customer_id: Customer.third.id, handyman_id: Handyman.second.id)
-Review.create(comment: Faker::Lorem.sentence, customer_id: Customer.fourth.id, handyman_id: Handyman.second.id)
-Review.create(comment: Faker::Lorem.sentence, customer_id: Customer.fifth.id, handyman_id: Handyman.second.id)
+Review.create(comment: Faker::Lorem.sentence, customer_id: Customer.first.id, handyman_id: Handyman.second.id, votes: 0)
+Review.create(comment: Faker::Lorem.sentence, customer_id: Customer.second.id, handyman_id: Handyman.second.id, votes: 0)
+Review.create(comment: Faker::Lorem.sentence, customer_id: Customer.third.id, handyman_id: Handyman.second.id, votes: 0)
+Review.create(comment: Faker::Lorem.sentence, customer_id: Customer.fourth.id, handyman_id: Handyman.second.id, votes: 0)
+Review.create(comment: Faker::Lorem.sentence, customer_id: Customer.fifth.id, handyman_id: Handyman.second.id, votes: 0)
 puts "End of Review seeding"
 
 puts "Message seeding"
-Message.create(customer_id: rand(1..9), message: Faker::Lorem.paragraph(sentence_count: 3, supplemental: true), handyman_id: rand(1..4))
+Message.create(customer_id: rand(1..9), message: Faker::Lorem.paragraph_by_chars(number: 3, supplemental: true), handyman_id: rand(1..4))
 
 puts "End of Message seeding"

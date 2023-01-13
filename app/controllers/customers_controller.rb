@@ -8,6 +8,12 @@ class CustomersController < ApplicationController
     render json: { customer: CustomerSerializer.new(@customer), jwt: @token }, status: :accepted
   end
 
+  def index
+  end
+
+  def destroy
+  end
+
   private
 
   def customer_params
