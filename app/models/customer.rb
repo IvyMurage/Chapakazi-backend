@@ -6,4 +6,5 @@ class Customer < ApplicationRecord
   validates :location, presence: true
   has_many :jobs, dependent: :destroy
   has_many :reviews
+  has_many :messages
 end
