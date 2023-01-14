@@ -4,7 +4,6 @@ class HandymenController < ApplicationController
   rescue_from ActiveRecord::RecordNotFound, with: :render_not_found_response
 
   def create
-    # byebug
     @handyman = Handyman.create!(handyman_params)
     @token = encode_token(handyman_id: @handyman.id)
     render json: { handyman: HandymanSerializer.new(@handyman), jwt: @token }, status: :created

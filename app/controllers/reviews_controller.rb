@@ -25,6 +25,7 @@ class ReviewsController < ApplicationController
   end
 
   def update
+    review = find_review
     review = Review.update!(review_params)
     render json: review, status: :accepted
   end
@@ -34,6 +35,24 @@ class ReviewsController < ApplicationController
     review.destroy
     head :no_content
   end
+
+
+  def increment_likes
+    review = find_review
+    if review
+      Review.update(votes:review.votes + 1 || 1)
+      render json: review, status: :accepted
+    end
+  end
+
+  def decrement_likes
+    review = find_review
+    if review
+      Review.update(votes:review.votes - 1 || 0)
+      render json: review, status: :accepted
+    end
+  end
+
 
   private
 
