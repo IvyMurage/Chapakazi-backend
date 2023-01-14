@@ -87,17 +87,17 @@ Handyman.create(username: "Ian Kimondo",
                 admin_id: 1)
 
 puts "Review seeding"
-Review.create(comment: Faker::Lorem.sentence, customer_id: Customer.first.id, handyman_id: Handyman.first.id, votes: 0)
-Review.create(comment: Faker::Lorem.sentence, customer_id: Customer.second.id, handyman_id: Handyman.first.id, votes: 0)
-Review.create(comment: Faker::Lorem.sentence, customer_id: Customer.third.id, handyman_id: Handyman.first.id, votes: 0)
-Review.create(comment: Faker::Lorem.sentence, customer_id: Customer.fourth.id, handyman_id: Handyman.first.id, votes: 0)
-Review.create(comment: Faker::Lorem.sentence, customer_id: Customer.fifth.id, handyman_id: Handyman.first.id, votes: 0)
+Review.create(comment: Faker::Lorem.paragraph_by_chars(number: 260), customer_id: Customer.first.id, handyman_id: Handyman.first.id, votes: 0)
+Review.create(comment: Faker::Lorem.paragraph_by_chars(number: 260), customer_id: Customer.second.id, handyman_id: Handyman.first.id, votes: 0)
+Review.create(comment: Faker::Lorem.paragraph_by_chars(number: 260), customer_id: Customer.third.id, handyman_id: Handyman.first.id, votes: 0)
+Review.create(comment: Faker::Lorem.paragraph_by_chars(number: 260), customer_id: Customer.fourth.id, handyman_id: Handyman.first.id, votes: 0)
+Review.create(comment: Faker::Lorem.paragraph_by_chars(number: 260), customer_id: Customer.fifth.id, handyman_id: Handyman.first.id, votes: 0)
 
-Review.create(comment: Faker::Lorem.sentence, customer_id: Customer.first.id, handyman_id: Handyman.second.id, votes: 0)
-Review.create(comment: Faker::Lorem.sentence, customer_id: Customer.second.id, handyman_id: Handyman.second.id, votes: 0)
-Review.create(comment: Faker::Lorem.sentence, customer_id: Customer.third.id, handyman_id: Handyman.second.id, votes: 0)
-Review.create(comment: Faker::Lorem.sentence, customer_id: Customer.fourth.id, handyman_id: Handyman.second.id, votes: 0)
-Review.create(comment: Faker::Lorem.sentence, customer_id: Customer.fifth.id, handyman_id: Handyman.second.id, votes: 0)
+Review.create(comment: Faker::Lorem.paragraph_by_chars(number: 260), customer_id: Customer.first.id, handyman_id: Handyman.second.id, votes: 0)
+Review.create(comment: Faker::Lorem.paragraph_by_chars(number: 260), customer_id: Customer.second.id, handyman_id: Handyman.second.id, votes: 0)
+Review.create(comment: Faker::Lorem.paragraph_by_chars(number: 260), customer_id: Customer.third.id, handyman_id: Handyman.second.id, votes: 0)
+Review.create(comment: Faker::Lorem.paragraph_by_chars(number: 260), customer_id: Customer.fourth.id, handyman_id: Handyman.second.id, votes: 0)
+Review.create(comment: Faker::Lorem.paragraph_by_chars(number: 260), customer_id: Customer.fifth.id, handyman_id: Handyman.second.id, votes: 0)
 puts "End of Review seeding"
 
 puts "Message seeding"

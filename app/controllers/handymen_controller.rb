@@ -15,12 +15,17 @@ class HandymenController < ApplicationController
     render json: handymen, status: :ok
   end
 
+  def show
+    handyman = find_handyman
+    render json: handyman, status: :ok
+  end
+
   def update
   end
 
   def destroy
-    customer = find_customer
-    customer.destroy
+    handyman = find_handyman
+    handyman.destroy
     head :no_content
   end
 
@@ -43,8 +48,8 @@ class HandymenController < ApplicationController
     render json: { errors: invalid.record.errors.full_messages }, status: :unprocessable_entity
   end
 
-  def find_customer
-    Customer.find(params[:id])
+  def find_handyman
+    Handyman.find(params[:id])
   end
 
   def render_not_found_response

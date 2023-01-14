@@ -4,7 +4,13 @@ class ReviewsController < ApplicationController
   skip_before_action :authorized, only: [:index]
 
   def index
-    reviews = Review.all
+    if params[:handyman_id]
+      handyman = find(params[:handyman_id])
+      handyman.reviews
+    else
+      reviews = Review.all
+    end
+
     render json: reviews, status: :ok
   end
 
