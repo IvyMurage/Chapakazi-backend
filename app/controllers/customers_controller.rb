@@ -25,6 +25,12 @@ class CustomersController < ApplicationController
     head :no_content
   end
 
+  def update
+    customer = find_customer
+    customer.update!(customer_params)
+    render json: customer, status: :accepted
+  end
+
   private
 
   def customer_params

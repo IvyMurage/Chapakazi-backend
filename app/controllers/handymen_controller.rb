@@ -20,6 +20,9 @@ class HandymenController < ApplicationController
   end
 
   def update
+    handyman = find_handyman
+    handyman.update!(handyman_params)
+    render json: handyman, status: :accepted
   end
 
   def destroy
