@@ -20,9 +20,9 @@ class HandymenController < ApplicationController
   end
 
   def update
-    handyman = find_handyman
-    handyman.update!(handyman_params)
-    render json: handyman, status: :accepted
+    # byebug
+    current_handyman.update!(handyman_params)
+    render json: current_handyman, status: :accepted
   end
 
   def destroy
@@ -31,12 +31,25 @@ class HandymenController < ApplicationController
     head :no_content
   end
 
+
+
   private
 
   def handyman_params
     params.permit(:username,
                   :password,
                   :password_confirmation,
+                  :location,
+                  :image,
+                  :description,
+                  :admin_id,
+                  :email,
+                  :rating,
+                  :speciality)
+  end
+
+  def handyman_update_params
+    params.permit(:username,
                   :location,
                   :image,
                   :description,

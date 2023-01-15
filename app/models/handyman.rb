@@ -1,14 +1,18 @@
 class Handyman < ApplicationRecord
   has_secure_password
   validates :username, presence: true, uniqueness: { case_sensitive: false }
-  validates :password, presence: true, length: { maximum: 8 }
-  validates :password_confirmation, presence: true, length: { maximum: 8 }
+  validates :password, length: { in: 6..8 }, if: :password_required?
+  validates :password_confirmation, length: { in: 6..8 }, if: :password_required?
   validates :description, length: { in: 155..1000 }
   validates :email, presence: true, uniqueness: { case_sensitive: false }
   validates :image, presence: true
   validates :location, presence: true
   has_many :reviews, dependent: :destroy
   has_many :messages
-  
-  # has_one_attached :image
+
+  private
+
+  def password_required?
+    false || password.present?
+  end
 end
