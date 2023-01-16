@@ -7,7 +7,7 @@ class AdminsauthController < ApplicationController
     @admin = Admin.find_by(username: admin_params[:username])
     if @admin && @admin.authenticate(admin_params[:password])
       @token = encode_token(admin_id: @admin.id)
-      render json: { admin: AdminSerializer.new(@admin), jwt: @toke }, status: :created
+      render json: { admin: AdminSerializer.new(@admin), jwt: @token }, status: :created
     end
   end
 

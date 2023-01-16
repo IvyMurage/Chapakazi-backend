@@ -8,6 +8,8 @@ class AdminsController < ApplicationController
     render json: { admin: AdminSerializer.new(@admin), jwt: @token }, status: :created
   end
 
+
+
   def show
   end
 
@@ -21,6 +23,7 @@ class AdminsController < ApplicationController
 
   def admin_params
     params.permit(:username,
+                  :email,
                   :password,
                   :password_confirmation)
   end

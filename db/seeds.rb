@@ -1,43 +1,50 @@
 puts "👨‍💻👨‍💻 job seeding!!"
 
+Admin.create(
+  username: Faker::Name.name,
+  email: "johndoe@admin.com",
+  password: "123",
+  password_confirmation: "123",
+)
+
 Customer.create(username: Faker::Name.name,
                 image: "https://randomuser.me/api/portraits/women/3260.jpg",
                 password: "12345678",
                 password_confirmation: "12345678",
                 location: "Langata, Nairobi West",
-                admin_id: 1)
+                admin_id: Admin.first.id)
 
 Customer.create(username: Faker::Name.name,
                 image: "https://randomuser.me/api/portraits/men/2603.jpg",
                 password: "12345678",
                 password_confirmation: "12345678",
                 location: "Thika, Nairobi",
-                admin_id: 1)
+                admin_id: Admin.first.id)
 
 Customer.create(username: Faker::Name.name,
                 image: " https://randomuser.me/api/portraits/women/62.jpg",
                 password: "12345678",
                 password_confirmation: "12345678",
                 location: "Roysambu, Nairobi",
-                admin_id: 1)
+                admin_id: Admin.first.id)
 
 Customer.create(username: Faker::Name.name,
                 image: "https://randomuser.me/api/portraits/men/80.jpg",
                 password: "12345678",
                 password_confirmation: "12345678",
                 location: "Kiambaa, Kiambu",
-                admin_id: 1)
+                admin_id: Admin.first.id)
 
 Customer.create(username: Faker::Name.name,
                 image: "https://randomuser.me/api/portraits/women/69.jpg",
                 password: "12345678",
                 password_confirmation: "12345678",
                 location: "Umoja, Eastlands",
-                admin_id: 1)
+                admin_id: Admin.first.id)
 
 10.times do
   customer_id = Customer.order("RANDOM()").first.id
-  Job.create(title: Faker::Job.field, description: Faker::Lorem.paragraph_by_chars(number: 1000), budget: "$#{rand(20..49)}-$#{rand(2600..260)}", customer_id: customer_id)
+  Job.create(title: Faker::Job.field, description: Faker::Lorem.paragraph_by_chars(number: 1000), budget: "$#{rand(20..49)}-$#{rand(100..2000)}", customer_id: customer_id)
 end
 
 puts "👨‍💻👨‍💻 end of job seeding!!"
@@ -51,7 +58,7 @@ Handyman.create(username: "John Wilson",
                 rating: "$12-$30",
                 speciality: "Capentry",
                 description: Faker::Lorem.paragraph_by_chars(number: 260),
-                admin_id: 1)
+                admin_id: Admin.first.id)
 
 Handyman.create(username: "John Doe",
                 password: "12345678",
@@ -62,7 +69,7 @@ Handyman.create(username: "John Doe",
                 rating: "$12-$30",
                 speciality: "Capentry",
                 description: Faker::Lorem.paragraph_by_chars(number: 260),
-                admin_id: 1)
+                admin_id: Admin.first.id)
 
 Handyman.create(username: "Albert Raynold",
                 password: "12345678",
@@ -73,7 +80,7 @@ Handyman.create(username: "Albert Raynold",
                 rating: "$12-$30",
                 speciality: "Capentry",
                 description: Faker::Lorem.paragraph_by_chars(number: 260),
-                admin_id: 1)
+                admin_id: Admin.first.id)
 
 Handyman.create(username: "Ian Kimondo",
                 password: "12345678",
@@ -84,7 +91,7 @@ Handyman.create(username: "Ian Kimondo",
                 rating: "$12-$30",
                 speciality: "Capentry",
                 description: Faker::Lorem.paragraph_by_chars(number: 260),
-                admin_id: 1)
+                admin_id: Admin.first.id)
 
 puts "Review seeding"
 Review.create(comment: Faker::Lorem.paragraph_by_chars(number: 260), customer_id: Customer.first.id, handyman_id: Handyman.first.id, votes: 0)
