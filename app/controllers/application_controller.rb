@@ -27,6 +27,8 @@ class ApplicationController < ActionController::API
         return current_customer
       elsif decoded_token[0]["handyman_id"]
         return current_handyman
+      elsif decoded_token[0]["admin_id"]
+        return current_admin
       end
     end
   end
@@ -49,6 +51,11 @@ class ApplicationController < ActionController::API
   def current_handyman
     handyman_id = decoded_token[0]["handyman_id"]
     handyman = Handyman.find_by(id: handyman_id)
+  end
+
+  def current_admin
+    admin_id = decoded_token[0]["admin_id"]
+    admin = Admin.find_by(id: admin_id)
   end
 
   def render_unprocessable_entity_response(invalid)

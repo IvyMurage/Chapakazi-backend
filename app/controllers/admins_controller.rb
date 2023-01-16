@@ -1,9 +1,10 @@
 class AdminsController < ApplicationController
   rescue_from ActiveRecord::RecordInvalid, with: :render_unprocessable_entity_response
+  skip_before_action only: [:create]
 
   def create
     @admin = Admin.create!(admin_params)
-    @token = encode_token(admin: @admin_id)
+    @token = encode_token(admin_id: @admin_id)
     render json: { admin: AdminSerializer.new(@admin), jwt: @token }, status: :created
   end
 
@@ -25,6 +26,6 @@ class AdminsController < ApplicationController
   end
 
   def render_unprocessable_entity_response(invalid)
-    render json: { errors: invalid.record.errors.full_messages }
+    render json: { errors: invalid.record.errors.full_messages }, status: :unprocessable_entity
   end
 end
