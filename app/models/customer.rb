@@ -7,6 +7,7 @@ class Customer < ApplicationRecord
   has_many :jobs, dependent: :destroy
   has_many :reviews, dependent: :destroy
   has_many :messages
+  belongs_to :admin
 
   private
 

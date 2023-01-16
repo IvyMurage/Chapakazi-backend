@@ -1,0 +1,2 @@
+class AdminsauthController < ApplicationController
+end

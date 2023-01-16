@@ -9,6 +9,7 @@ class Handyman < ApplicationRecord
   validates :location, presence: true
   has_many :reviews, dependent: :destroy
   has_many :messages
+  belongs_to :admin
 
   private
 

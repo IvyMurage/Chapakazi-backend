@@ -79,8 +79,12 @@ test:
 # Read https://guides.rubyonrails.org/configuring.html#configuring-a-database
 # for a full overview on how database connection configuration can be specified.
 #
+
 production:
-  <<: *default
-  database: chapakazi_backend_production
-  username: chapakazi_backend
-  password: <%= ENV["CHAPAKAZI_BACKEND_DATABASE_PASSWORD"] %>
+  url: <%= ENV["DATABASE_URL"] %>
+  # <<: *default
+  # database: chapakazi_backend_production
+  # username: chapakazi_backend
+  # password: <%= ENV["CHAPAKAZI_BACKEND_DATABASE_PASSWORD"] %>
+
+
