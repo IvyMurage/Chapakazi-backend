@@ -1,7 +1,7 @@
 class AdminsauthController < ApplicationController
   rescue_from ActiveRecord::RecordInvalid, with: :render_unprocessable_entity_response
 
-  skip_before_action only: [:create]
+  skip_before_action :authorized, only: [:create, :show]
 
   def create
     @admin = Admin.find_by(username: admin_params[:username])

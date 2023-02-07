@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :job_handymen
   resources :admins
   resources :handymen
   resources :messages

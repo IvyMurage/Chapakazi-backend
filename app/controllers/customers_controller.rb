@@ -26,8 +26,8 @@ class CustomersController < ApplicationController
   end
 
   def update
-    customer = find_customer
-    customer.update!(customer_params)
+    # customer = find_customer
+    current_customer.update!(customer_params)
     render json: customer, status: :accepted
   end
 

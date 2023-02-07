@@ -1,7 +1,7 @@
 class ReviewsController < ApplicationController
   rescue_from ActiveRecord::RecordNotFound, with: :render_review_not_found_response
   rescue_from ActiveRecord::RecordInvalid, with: :render_unprocessable_entity_response
-  # skip_before_action :authorized, only: [:index]
+  skip_before_action :authorized, only: [:index]
 
   def index
     if params[:handyman_id]
