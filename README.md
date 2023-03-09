@@ -114,3 +114,23 @@ Login POST request
     }
 }
 ```
+
+* POST request for a job
+```
+{
+    "id": 11,
+    "title": "Farming",
+    "summary": "General farm workers plant, cultivate and harvest crops, raise livestock and poultry and maintain and repair farm equipment and buildings. General farm workers perform some or all of the following duti...",
+    "budget": "$48-$80",
+    "description": "General farm workers plant, cultivate and harvest crops, raise livestock and poultry and maintain and repair farm equipment and buildings. General farm workers perform some or all of the following duties: Plant, fertilize, cultivate, spray, irrigate and harvest crops",
+    "customer": {
+        "id": 2,
+        "username": "Randa Bauch",
+        "image": "https://randomuser.me/api/portraits/men/2603.jpg",
+        "location": "Thika, Nairobi",
+        "admin_id": 1
+    },
+    "handymen": [],
+    "job_handymen": []
+}
+```
