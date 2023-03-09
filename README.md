@@ -21,3 +21,5 @@ Chapakazi is a web based application designed to match homeowners with trustwort
 * ``` A customer has many messages ```
 * ``` A message belongs to a customer ```
 * ``` A message belongs to a handyman ```
+## Image representation of the models and relationships
+![Untitled](https://user-images.githubusercontent.com/108492757/224022525-11764b10-488b-42e6-9e45-8b49f8658753.png)
