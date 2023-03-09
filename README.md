@@ -134,3 +134,8 @@ Login POST request
     "job_handymen": []
 }
 ```
+
+### Api Endpoints
+
+
+I have added responses to my API to provide feedback when requests are made, and I have also included various output options for users to test and experiment with.
