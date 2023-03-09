@@ -162,9 +162,7 @@ I have added responses to my API to provide feedback when requests are made, and
 
 ### Authors
 * [Ivy Murage](https://github.com/Murage-Ivy)
-* [Rajab Karume]
-* [Noela Murugi]
-* [Lynette Ronoh
+* [Lynette Ronoh(https://github.com/Rlynette)
 
 ### License
 This project is available for use under the MIT License.
