@@ -32,7 +32,7 @@ The relationship shows how the different models in my application are associated
 
 
 ### Authorization Error
-This error is rendered when a person tries to make a request yet they have not sign in to use the application
+This error is rendered when a user tries to make a request to a protected route  yet they have not sign in to use the application
 ```
 {
     "errors": [
