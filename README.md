@@ -97,3 +97,20 @@ Login POST request
     ....  
 ]
 ```
+
+* Get  request for a single job
+```
+{
+    "id": 1,
+    "title": "Sales",
+    "description": "Pariatur commodi corrupti. Laborum a dolorem. Ut omnis dolor. Nihil enim voluptas. Deleniti omnis ut. Optio velit est. Molestiae est repudiandae. Explicabo nihil veniam. Expedita dolorem recusandae. Necessitatibus aut est. Dicta sunt dolor. Quisquam est nulla. In quis et. Natus maiores voluptates. Molestiae facere dolorem. Quia eaque rerum. Est possimus consequatur. Unde et aut. Illo dolores blanditiis. Perferendis ullam quo. Earum quisquam unde. Voluptates minus est. Voluptatem id mollitia. Excepturi dolor earum. Est qui repellat. Reiciendis molestiae ex. Cumque quae est. Nisi cum illum. Facilis omnis voluptatibus. Est magni quaerat. Ullam dolores accusantium. Harum corrupti similique. Exercitationem qui aut. Error modi porro. Est ducimus quibusdam. Enim non adipisci. Quod repellat nihil. Laboriosam non aut. Non qui ut. Id sed vitae. Non ipsam animi. Explicabo esse incidunt. Quidem sit velit. Labore aut et. Praesentium voluptas sit. Veritatis non quidem. Sint magni amet. Libero volup.",
+    "budget": "$48-$800",
+    "customer": {
+        "id": 5,
+        "username": "Josiah Hahn III",
+        "image": "https://randomuser.me/api/portraits/women/69.jpg",
+        "location": "Umoja, Eastlands",
+        "admin_id": 1
+    }
+}
+```
