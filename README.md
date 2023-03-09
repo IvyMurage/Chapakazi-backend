@@ -40,3 +40,35 @@ This error is rendered when a user tries to make a request to a protected route 
     ]
 }
 ```
+
+### When a user logins 
+```
+{
+    "handyman": {
+        "id": 4,
+        "username": "Ian Kimondo",
+        "location": "Ruiru,Kiambu",
+        "image": "https://img.freepik.com/free-photo/carpenter-cutting-plank-by-circular-saw_329181-3731.jpg?w=740&t=st=1672677374~exp=1672677974~hmac=792260726039772412f447b7f9d73b6f04d0160fa9ae7f3fdbdb260b03dcc60621d6e2",
+        "description": "Architecto officia est. Eos ut illo. Ex natus ducimus. Minus eos quia. Quia doloremque eos. Non fugiat et. Et architecto similique. Dicta enim ratione. Et et aut. Tenetur possimus odio. Omnis voluptatem dignissimos. Odit nesciunt qui. Accusamus aut amet. Nam .",
+        "rating": "$12-$30",
+        "speciality": "Capentry",
+        "job_handymen": [],
+        "jobs": [],
+        "messages": [
+            {
+                "id": 1,
+                "handyman_id": 4,
+                "customer_id": 5,
+                "message": "Vi."
+            },
+            {
+                "id": 7,
+                "handyman_id": 4,
+                "customer_id": 4,
+                "message": "De."
+            }
+        ]
+    },
+    "token": "eyJhbGciOiJIUzI1NiJ9.eyJoYW5keW1hbl9pZCI6NH0.Ls7PHlfMlJynVeN3r4I0CYaWATAvdEM_RDU2gw8hAFQ"
+}
+```
