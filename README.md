@@ -42,6 +42,8 @@ This error is rendered when a user tries to make a request to a protected route 
 ```
 
 ### When a user logins 
+
+Login POST request 
 ```
 {
     "handyman": {
@@ -69,6 +71,6 @@ This error is rendered when a user tries to make a request to a protected route 
             }
         ]
     },
-    "token": "eyJhbGciOiJIUzI1NiJ9.eyJoYW5keW1hbl9pZCI6NH0.Ls7PHlfMlJynVeN3r4I0CYaWATAvdEM_RDU2gw8hAFQ"
+    "token": "eyJhbG..."
 }
 ```
