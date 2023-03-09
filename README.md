@@ -6,6 +6,12 @@ Chapakazi is a web based application designed to match homeowners with trustwort
 
 ## Models indentifes and relationship 
 
+A model is a representation of a specific object, for instance in my application I have a customer, handyman, messages, reviews and jobs. 
+
+The relationship shows how the different models in my application are associated and how they are related.
+
+</br>
+
 * ```A customer has many jobs ```
 * ``` A handyman has many jobs through job_handymen ```
 * ``` A job has many handymen through job_handymen ```
