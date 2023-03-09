@@ -29,3 +29,14 @@ The relationship shows how the different models in my application are associated
 * ``` A message belongs to a handyman ```
 ## Image representation of the models and relationships
 ![Untitled](https://user-images.githubusercontent.com/108492757/224022525-11764b10-488b-42e6-9e45-8b49f8658753.png)
+
+
+### Authorization Error
+This error is rendered when a person tries to make a request yet they have not sign in to use the application
+```
+{
+    "errors": [
+        "Please log in!"
+    ]
+}
+```
