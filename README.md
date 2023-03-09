@@ -151,4 +151,20 @@ Login POST request
 | POST | /customers| To create a new signed up customer|
 | POST | /handymen| To create a new signed up handyman|
 
-I have added responses to my API to provide feedback when requests are made, and I have also included various output options for users to test and experiment with.
+I have added responses to my API to provide feedback when requests are made, and I have also included various endpoint options for users to test and experiment with.
+
+### Future Updates
+* Implement messaging using websockets instead of using http requests
+* Improve the application responsiveness
+
+### Technologies Used
+* [Ruby on rails](https://guides.rubyonrails.org/) Rails is a web application development framework written in the Ruby programming language. It allows for installation and managing of dependencies and communication with databases.
+
+### Authors
+* [Ivy Murage](https://github.com/Murage-Ivy)
+* [Rajab Karume]
+* [Noela Murugi]
+* [Lynette Ronoh
+
+### License
+This project is available for use under the MIT License.
