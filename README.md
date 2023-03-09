@@ -135,7 +135,20 @@ Login POST request
 }
 ```
 
-### Api Endpoints
+### API Endpoints
 
+| HTTP Verbs | Endpoints | Action |
+| --- | --- | --- |
+| GET | /jobs| To retrieve all jobs|
+| GET | /jobs/:id | To retrieve a single job and its details|
+| DELETE | /jobs/:id | To delete a single job|
+| GET | /reviews| To retrieve details of all reviews |
+| POST | /reviews | To create a new review|
+| PATCH | /reviews/:id| To edit a single review|
+| DELETE| /reviews/:id| To delete a single review|
+| POST | handyman/login| To create a new login for a handyman|
+| POST | customer/login| To create a new login for a customer|
+| POST | /customers| To create a new signed up customer|
+| POST | /handymen| To create a new signed up handyman|
 
 I have added responses to my API to provide feedback when requests are made, and I have also included various output options for users to test and experiment with.
