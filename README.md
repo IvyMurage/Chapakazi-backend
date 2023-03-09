@@ -76,6 +76,7 @@ Login POST request
 ```
 
 * Get request for all jobs 
+```
 [
     {
         "id": 1,
@@ -95,3 +96,4 @@ Login POST request
     },
     ....  
 ]
+```
